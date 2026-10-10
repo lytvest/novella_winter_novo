@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://mssk1ve6vvve"]
+
+[ext_resource type="Script" uid="uid://b0ekermcjdk3j" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://k05xqdolyb11" path="res://assets/backgrounds/main_menu.jpg" id="2_bqqt6"]
+
+[node name="MainMenu" type="Control" unique_id=895259947]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_ekxnf")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2121401818]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_bqqt6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dim" type="ColorRect" parent="." unique_id=543224211]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.45)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1068342841]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Menu" type="VBoxContainer" parent="Center" unique_id=1434216268]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="Center/Menu" unique_id=1309729913]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "NOVELLA"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Center/Menu" unique_id=363251986]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="Center/Menu/Buttons" unique_id=1290934083]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Начать"
+
+[node name="LoadButton" type="Button" parent="Center/Menu/Buttons" unique_id=1839091504]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Загрузить"
+
+[node name="SettingsButton" type="Button" parent="Center/Menu/Buttons" unique_id=1765505519]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Настройки"
+
+[node name="QuitButton" type="Button" parent="Center/Menu/Buttons" unique_id=1530799250]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Выход"
+
+[node name="StatusLabel" type="Label" parent="Center/Menu" unique_id=36364037]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2
