@@ -26,10 +26,15 @@ novella/
 │   └── Огонёк.dch
 ├── scenes/              # игровые сцены
 │   ├── main_menu.tscn   # главное меню
+│   ├── settings.tscn    # страница настроек
 │   └── chapter1.tscn    # первая глава (запускает таймлайн)
 ├── scripts/             # GDScript-скрипты
+│   ├── game_settings.gd # автозагрузка GameSettings (локаль, скорость, автопролистывание)
 │   ├── main_menu.gd
+│   ├── settings.gd
 │   └── chapter1.gd
+├── locale/              # таблица переводов Dialogic
+│   └── dialogic_translations.csv
 ├── texts/               # тексты и таймлайны глав
 │   ├── глава 1.md       # исходный текст главы
 │   └── chapter1.dtl     # таймлайн Dialogic главы 1
@@ -45,6 +50,49 @@ novella/
 1. Откройте проект в Godot 4.7.
 2. Главная сцена — `res://scenes/main_menu.tscn` (она же задана как main scene).
 3. Нажмите **F5**, чтобы запустить игру, или **F6** для запуска текущей сцены.
+
+## Настройки
+
+Страница настроек — сцена `scenes/settings.tscn` (открывается кнопкой **Настройки** в
+главном меню, кнопка **Назад** возвращает в меню). Доступно:
+
+- **Язык** — переключение локали: системная, русский (`ru`), английский (`en`).
+- **Скорость текста** — скорость появления символов (0 — мгновенно).
+- **Автопролистывание** — автоматический переход к следующей реплике и его задержка.
+
+Настройки хранит и применяет автозагрузка `scripts/game_settings.gd` (`GameSettings`).
+Значения сохраняются средствами Dialogic (`Dialogic.Settings` → `user://dialogic/saves/global_info.txt`),
+поэтому не зависят от слота сохранения. Из кода:
+
+```gdscript
+GameSettings.text_speed = 0.03
+GameSettings.autoadvance = true
+GameSettings.autoadvance_delay = 1.5
+GameSettings.set_locale_by_index(2)
+```
+
+## Локализация
+
+Перевод текста строится на штатном механизме переводов Dialogic.
+
+- **Таблица переводов:** `locale/dialogic_translations.csv` (колонки `keys,ru,en`).
+  Godot импортирует её в `.en.translation` и `.ru.translation`;
+  оба файла зарегистрированы в `project.godot` (`internationalization/locale/translations`).
+- **Ключи:**
+  - `Text/<id>/text` — реплика (событие `Text`);
+  - `Choice/<id>/text` — вариант выбора (событие `Choice`);
+  - `Character/<id>/name` — имя персонажа.
+- **ID** хранятся в конце строк таймлайна (`.dtl`) как `#id:<hex>` и в ресурсах
+  персонажей (`.dch`) в поле `_translation_id`.
+- Включено в `project.godot`: `dialogic/translation/enabled=true`,
+  `dialogic/translation/original_locale="ru"`, `internationalization/locale/fallback="ru"`.
+
+Чтобы добавить перевод новой реплики: присвойте событию `#id:<hex>` в `.dtl`,
+добавьте строку `Text/<hex>/text,<ru>,<en>` в CSV и пересканируйте файловую систему
+в редакторе.
+
+> Внимание: новые автозагрузки (`GameSettings`) и настройки перевода подхватываются
+> редактором только после перезапуска Godot.
 
 ## Главное меню
 

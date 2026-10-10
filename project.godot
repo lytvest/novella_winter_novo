@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+GameSettings="*res://scripts/game_settings.gd"
 MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
 MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
 MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"
@@ -57,6 +58,18 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
+text/autoadvance_fixed_delay=1
+translation/enabled=true
+translation/original_locale="ru"
+translation/file_mode=0
+translation/translation_folder="res://locale"
+settings/text_speed=0.01
+settings/autoadvance_enabled=false
+settings/autoadvance_fixed_delay=0.0
+settings/locale=""
+settings/text_wpm=150
+settings/autoadvance_ms=40
+settings/autoadvance_per_character_delay=0.04
 
 [display]
 
@@ -78,6 +91,11 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://locale/dialogic_translations.en.translation", "res://locale/dialogic_translations.ru.translation")
+locale/fallback="ru"
 
 [physics]
 

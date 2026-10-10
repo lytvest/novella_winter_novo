@@ -2,5 +2,8 @@
 .godot/
 /android/
 
+# Сгенерированные из CSV переводы (источник — locale/*.csv)
+*.translation
+
 # Local editor / tool config (may contain secrets)
 opencode.json

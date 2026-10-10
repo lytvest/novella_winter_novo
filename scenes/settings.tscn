@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://c8v7km822hqi8"]
+
+[ext_resource type="Script" uid="uid://dkxfj0evqi3sk" path="res://scripts/settings.gd" id="1_settings"]
+[ext_resource type="Texture2D" uid="uid://k05xqdolyb11" path="res://assets/backgrounds/main_menu.jpg" id="2_bg"]
+
+[node name="Settings" type="Control" unique_id=991644966]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="TextureRect" parent="." unique_id=518296617]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dim" type="ColorRect" parent="." unique_id=2134648961]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.65)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1005852219]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="VBoxContainer" parent="Center" unique_id=113164083]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Center/Panel" unique_id=1249812865]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Настройки"
+horizontal_alignment = 1
+
+[node name="Rows" type="VBoxContainer" parent="Center/Panel" unique_id=1711202455]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="LocaleRow" type="HBoxContainer" parent="Center/Panel/Rows" unique_id=36508897]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LocaleLabel" type="Label" parent="Center/Panel/Rows/LocaleRow" unique_id=1283923613]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Язык"
+vertical_alignment = 1
+
+[node name="LocaleOption" type="OptionButton" parent="Center/Panel/Rows/LocaleRow" unique_id=382868022]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="SpeedRow" type="HBoxContainer" parent="Center/Panel/Rows" unique_id=84121266]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SpeedLabel" type="Label" parent="Center/Panel/Rows/SpeedRow" unique_id=1060580618]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Скорость текста"
+vertical_alignment = 1
+
+[node name="SpeedSlider" type="HSlider" parent="Center/Panel/Rows/SpeedRow" unique_id=545485596]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 50.0
+max_value = 500.0
+step = 10.0
+value = 150.0
+
+[node name="SpeedValue" type="Label" parent="Center/Panel/Rows/SpeedRow" unique_id=11230232]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "150 сл/мин"
+horizontal_alignment = 2
+
+[node name="AutoRow" type="HBoxContainer" parent="Center/Panel/Rows" unique_id=2093223677]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AutoLabel" type="Label" parent="Center/Panel/Rows/AutoRow" unique_id=541508431]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Автопролистывание"
+vertical_alignment = 1
+
+[node name="AutoCheck" type="CheckButton" parent="Center/Panel/Rows/AutoRow" unique_id=790610391]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Вкл."
+
+[node name="AutoMsRow" type="HBoxContainer" parent="Center/Panel/Rows" unique_id=968841491]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AutoMsLabel" type="Label" parent="Center/Panel/Rows/AutoMsRow" unique_id=1473651232]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Задержка на символ"
+vertical_alignment = 1
+
+[node name="AutoMsSlider" type="HSlider" parent="Center/Panel/Rows/AutoMsRow" unique_id=1657604115]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 200.0
+value = 40.0
+
+[node name="AutoMsValue" type="Label" parent="Center/Panel/Rows/AutoMsRow" unique_id=1767198208]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "40 мс"
+horizontal_alignment = 2
+
+[node name="BackRow" type="HBoxContainer" parent="Center/Panel" unique_id=247126799]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Center/Panel/BackRow" unique_id=2105735893]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Назад"
